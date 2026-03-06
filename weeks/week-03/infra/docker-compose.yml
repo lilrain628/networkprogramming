@@ -1,0 +1,20 @@
+services:
+  tickets-svc-s10:
+    build: ./services/tickets
+    ports:
+      - "8184:8184"
+
+  other-svc:
+    build: ./services/other
+    ports:
+      - "8185:8185"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - tickets-svc-s10
+      - other-svc
