@@ -3,8 +3,8 @@ import sys
 import os
 
 def main():
-    group = os.getenv("GROUP", "431")
-    sid = os.getenv("STUDENT_ID", "s01")
+    group = os.getenv("GROUP", "332")
+    sid = os.getenv("STUDENT_ID", "s10")
     
     print(f"Checking tests for {group}/{sid}...")
     
