@@ -1,1 +1,20 @@
 # В этом месте вам необходимо: опишите GraphQL схему
+type Booking {
+  id: ID!
+  name: String!
+  date: String!
+}
+
+type Query {
+  bookings: [Booking!]!
+  booking(id: ID!): Booking
+}
+
+input BookingInput {
+  name: String!
+  date: String!
+}
+
+type Mutation {
+  createBooking(input: BookingInput!): Booking!
+}
