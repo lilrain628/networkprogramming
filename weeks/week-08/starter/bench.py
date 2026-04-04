@@ -7,8 +7,8 @@ import service_pb2_grpc
 def run_rest_bench():
     print("Starting REST benchmark...")
     start = time.time()
-    for _ in range(1000):
-        requests.get("http://localhost:8000/items")
+     for _ in range(1000):
+         requests.get("http://localhost:8000/items")
     end = time.time()
     print(f"REST: {end - start:.4f} sec")
 

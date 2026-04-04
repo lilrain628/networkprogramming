@@ -1,23 +1,16 @@
 syntax = "proto3";
 
-package comments.v1;
+// Опишите ваш пакет и сервис здесь
+// package example;
 
-service CommentsService {
-  rpc GetComment(GetCommentRequest) returns (Comment);
-  rpc CreateComment(CreateCommentRequest) returns (Comment);
-}
+// service MyService {
+//   rpc MyMethod (MyRequest) returns (MyResponse);
+// }
 
-message GetCommentRequest {
-  string id = 1;
-}
+// message MyRequest {
+//   string id = 1;
+// }
 
-message CreateCommentRequest {
-  string text = 1;
-  string author = 2;
-}
-
-message Comment {
-  string id = 1;
-  string text = 2;
-  string author = 3;
-}
+// message MyResponse {
+//   string result = 1;
+// }
