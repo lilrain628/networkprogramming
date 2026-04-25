@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WEEK: "01"
-      GROUP: "431"
-      STUDENT_ID: "s01"
-      IMAGE_NAME: "В этом месте вам необходимо"
+      GROUP: "332"
+      STUDENT_ID: "s10"
+      IMAGE_NAME: "vladimir-products-s10"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
