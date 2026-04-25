@@ -1,1 +1,11 @@
-# В этом месте вам необходимо: Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: items-service
+spec:
+  selector:
+    app: items-app
+  ports:
+    - name: http
+      port: 8121
+      targetPort: 8121

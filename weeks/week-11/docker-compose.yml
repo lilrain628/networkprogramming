@@ -1,8 +1,7 @@
 version: '3.9'
 services:
-  app:
-    # Замените на имя образа
-    image: primer/obraz
+  devices-svc-s10:
+    image: devices-svc-s10:latest
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 10s
@@ -10,11 +9,15 @@ services:
       retries: 3
     networks:
       - app-net
+  stub:
+    image: busybox:latest
+    command: ["sh", "-c", "sleep 3600"]
+    networks:
+      - app-net
   gateway:
-    # Замените на имя образа
-    image: primer/obraz
+    image: nginx:alpine
     depends_on:
-      - app
+      - devices-svc-s10
     networks:
       - app-net
 networks:

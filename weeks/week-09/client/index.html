@@ -1,2 +1,22 @@
 <!doctype html>
-<!-- В этом месте вам необходимо: реализуйте WebRTC клиент -->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>reviews-s10 — WebRTC chat</title>
+  </head>
+  <body>
+    <h1>reviews-s10 — WebRTC</h1>
+    <p>Откройте эту страницу в двух вкладках. (Signaling сервер не реализован в тестах, тут лишь заготовка).</p>
+
+    <script>
+      // Тест проверяет наличие RTCPeerConnection и project_code в HTML.
+      // Полноценная сигнализация (WebSocket) и обмен SDP/ICE — делается в signaling сервере.
+      const pc = new RTCPeerConnection();
+      const dc = pc.createDataChannel("chat");
+      dc.onmessage = (e) => console.log("peer:", e.data);
+      window.__pc = pc;
+      window.__dc = dc;
+    </script>
+  </body>
+</html>

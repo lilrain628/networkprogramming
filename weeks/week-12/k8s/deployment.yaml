@@ -1,1 +1,40 @@
-# В этом месте вам необходимо: Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: items-app
+  labels:
+    app: items-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: items-app
+  template:
+    metadata:
+      labels:
+        app: items-app
+    spec:
+      containers:
+        - name: items-container
+          image: items-svc-s10:latest
+          ports:
+            - containerPort: 8121
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8121
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8121
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
