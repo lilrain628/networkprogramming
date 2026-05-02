@@ -12,6 +12,7 @@ jobs:
       GROUP: "332"
       STUDENT_ID: "s10"
       IMAGE_NAME: "vladimir-products-s10"
+      WEEK14_PROJECT_CODE: "tickets-s10"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,7 +30,7 @@ jobs:
         run: make test WEEK=${{ env.WEEK }}
       - name: Сборка Docker-образа
         run: |
-          docker build -t $IMAGE_NAME -f weeks/week-10/Dockerfile weeks/week-10
+          docker build -t "$IMAGE_NAME" -f weeks/week-10/Dockerfile weeks/week-10
       - name: Подготовка артефактов
         run: |
           mkdir -p artifacts

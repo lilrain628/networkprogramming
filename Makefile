@@ -1,6 +1,7 @@
-WEEK ?= 01
-
 .PHONY: test
 
 test:
-	python -m pytest -q weeks/week-$(WEEK)/tests
+	@for d in weeks/week-*/tests; do \
+		echo "Running tests in $$d "; \
+		python -m pytest -q $$d || exit 1; \
+	done
